@@ -17,9 +17,10 @@ pet_wid = st.number_input('Petal Width in Cm:', min_value=0.00, step=0.01)
 
 submit = st.button('Predict')
 
-
+# add subheader for predictions
 st.subheader('Predictions Are:')
 
+# Create a function to predict species along  woth probability
 
 def predict_species(scaler_path, model_path):
     with open(scaler_path, 'rb') as file1:
@@ -42,6 +43,8 @@ def predict_species(scaler_path, model_path):
     max_prob = np.max(probs)
     
     return pred, max_prob
+
+# show the results in streamlit 
 
 if submit:
     scaler_path = 'notebook/scaler.pkl'  
